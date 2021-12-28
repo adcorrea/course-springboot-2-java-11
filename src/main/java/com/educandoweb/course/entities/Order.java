@@ -136,7 +136,13 @@ public class Order implements Serializable {
 	}
 
 
-	public double total() {
-		return 0.0;
+	public double getTotal() {
+		double total = 0.0;
+		
+		for(OrderItem item : items) {
+			total += item.getSubTotal();
+		}
+		
+		return total;
 	}
 }
